@@ -23,13 +23,13 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My guess is: Yes you should get your umbrella" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReQ-Id-jry">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My guess is: I'm still looking at the skies, one moment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ReQ-Id-jry">
                                 <rect key="frame" x="16" y="97" width="288" height="40"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro8-tS-U5C">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ro8-tS-U5C">
                                 <rect key="frame" x="166" y="184" width="138" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="138" id="8BB-Kz-x9L"/>
@@ -59,7 +59,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85u-4f-9Uu">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85u-4f-9Uu">
                                 <rect key="frame" x="95" y="330" width="44" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="A8c-ZT-qPp"/>
@@ -288,14 +288,19 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dayPlusFicePrecipChanceLabel" destination="zg8-eI-VH3" id="QPk-MM-3zn"/>
+                        <outlet property="dayPlusFiveIcon" destination="TMJ-at-8FI" id="hCK-wF-AAU"/>
                         <outlet property="dayPlusFiveLabel" destination="4bU-K9-BYb" id="pvm-rJ-c9l"/>
+                        <outlet property="dayPlusFivePrecipChanceLabel" destination="zg8-eI-VH3" id="AdO-8J-si6"/>
+                        <outlet property="dayPlusFourIcon" destination="Jil-RF-leM" id="7Ti-nm-J5h"/>
                         <outlet property="dayPlusFourLabel" destination="qWj-SI-WMj" id="2hw-d9-4Y0"/>
                         <outlet property="dayPlusFourPrecipChanceLabel" destination="kai-Sl-YtO" id="hjY-nE-cuR"/>
+                        <outlet property="dayPlusOneIcon" destination="8dT-Ty-YtG" id="a3o-ET-ISd"/>
                         <outlet property="dayPlusOneLabel" destination="PGg-Hy-hUS" id="Tey-mc-RP3"/>
                         <outlet property="dayPlusOnePrecipChanceLabel" destination="85u-4f-9Uu" id="Yeo-sq-25G"/>
+                        <outlet property="dayPlusThreeIcon" destination="gF9-Eg-Rwp" id="A3e-Jg-v4m"/>
                         <outlet property="dayPlusThreeLabel" destination="Tgg-Zu-UHz" id="SzE-i3-rrE"/>
                         <outlet property="dayPlusThreePrecipChanceLabel" destination="LOJ-hD-X69" id="OmG-8f-Owk"/>
+                        <outlet property="dayPlusTwoIcon" destination="eDs-pf-kTZ" id="d7f-eQ-fZb"/>
                         <outlet property="dayPlusTwoLabel" destination="SUC-yA-VRs" id="L5T-Ko-3Rx"/>
                         <outlet property="dayPlusTwoPrecipChanceLabel" destination="Tfg-n8-s4Y" id="BBq-bW-w3f"/>
                         <outlet property="guessLabel" destination="ReQ-Id-jry" id="lIb-zA-B3W"/>

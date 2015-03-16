@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5576392D1AB75F3E00DD0EAB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5576392C1AB75F3E00DD0EAB /* CoreLocation.framework */; };
 		557867191AB727C200EA55CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557867181AB727C200EA55CC /* AppDelegate.swift */; };
 		5578671B1AB727C200EA55CC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578671A1AB727C200EA55CC /* DashboardViewController.swift */; };
 		5578671E1AB727C200EA55CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5578671C1AB727C200EA55CC /* Main.storyboard */; };
 		557867231AB727C200EA55CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557867211AB727C200EA55CC /* LaunchScreen.xib */; };
 		5578672F1AB727C200EA55CC /* wheresMyUmbrellaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578672E1AB727C200EA55CC /* wheresMyUmbrellaTests.swift */; };
 		5578673B1AB743F800EA55CC /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5578673A1AB743F800EA55CC /* assets.xcassets */; };
+		5578673D1AB74EB700EA55CC /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578673C1AB74EB700EA55CC /* WeatherData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5576392C1AB75F3E00DD0EAB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		557867131AB727C200EA55CC /* wheresMyUmbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wheresMyUmbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		557867171AB727C200EA55CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		557867181AB727C200EA55CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		5578672D1AB727C200EA55CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5578672E1AB727C200EA55CC /* wheresMyUmbrellaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wheresMyUmbrellaTests.swift; sourceTree = "<group>"; };
 		5578673A1AB743F800EA55CC /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
+		5578673C1AB74EB700EA55CC /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5576392D1AB75F3E00DD0EAB /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		5578670A1AB727C200EA55CC = {
 			isa = PBXGroup;
 			children = (
+				5576392C1AB75F3E00DD0EAB /* CoreLocation.framework */,
 				557867151AB727C200EA55CC /* wheresMyUmbrella */,
 				5578672B1AB727C200EA55CC /* wheresMyUmbrellaTests */,
 				557867141AB727C200EA55CC /* Products */,
@@ -79,6 +85,7 @@
 			children = (
 				557867181AB727C200EA55CC /* AppDelegate.swift */,
 				5578671A1AB727C200EA55CC /* DashboardViewController.swift */,
+				5578673C1AB74EB700EA55CC /* WeatherData.swift */,
 				5578671C1AB727C200EA55CC /* Main.storyboard */,
 				557867211AB727C200EA55CC /* LaunchScreen.xib */,
 				557867161AB727C200EA55CC /* Supporting Files */,
@@ -213,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5578671B1AB727C200EA55CC /* DashboardViewController.swift in Sources */,
+				5578673D1AB74EB700EA55CC /* WeatherData.swift in Sources */,
 				557867191AB727C200EA55CC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +413,7 @@
 				557867341AB727C200EA55CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		557867351AB727C200EA55CC /* Build configuration list for PBXNativeTarget "wheresMyUmbrellaTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +422,7 @@
 				557867371AB727C200EA55CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
