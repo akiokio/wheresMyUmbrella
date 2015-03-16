@@ -287,6 +287,24 @@
                             <constraint firstItem="ReQ-Id-jry" firstAttribute="top" secondItem="yaz-No-Q3f" secondAttribute="bottom" constant="8" id="ysz-Ve-L93"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dayPlusFicePrecipChanceLabel" destination="zg8-eI-VH3" id="QPk-MM-3zn"/>
+                        <outlet property="dayPlusFiveLabel" destination="4bU-K9-BYb" id="pvm-rJ-c9l"/>
+                        <outlet property="dayPlusFourLabel" destination="qWj-SI-WMj" id="2hw-d9-4Y0"/>
+                        <outlet property="dayPlusFourPrecipChanceLabel" destination="kai-Sl-YtO" id="hjY-nE-cuR"/>
+                        <outlet property="dayPlusOneLabel" destination="PGg-Hy-hUS" id="Tey-mc-RP3"/>
+                        <outlet property="dayPlusOnePrecipChanceLabel" destination="85u-4f-9Uu" id="Yeo-sq-25G"/>
+                        <outlet property="dayPlusThreeLabel" destination="Tgg-Zu-UHz" id="SzE-i3-rrE"/>
+                        <outlet property="dayPlusThreePrecipChanceLabel" destination="LOJ-hD-X69" id="OmG-8f-Owk"/>
+                        <outlet property="dayPlusTwoLabel" destination="SUC-yA-VRs" id="L5T-Ko-3Rx"/>
+                        <outlet property="dayPlusTwoPrecipChanceLabel" destination="Tfg-n8-s4Y" id="BBq-bW-w3f"/>
+                        <outlet property="guessLabel" destination="ReQ-Id-jry" id="lIb-zA-B3W"/>
+                        <outlet property="reminderTimeLabel" destination="dQc-kT-szX" id="z72-NX-KFO"/>
+                        <outlet property="settingsButton" destination="0kG-k5-mbK" id="fHD-46-QbY"/>
+                        <outlet property="todayBigIcoImageView" destination="WbS-cm-dDz" id="DCM-Zj-PUT"/>
+                        <outlet property="todayPrecipChangeLabel" destination="ro8-tS-U5C" id="xdg-wo-gHo"/>
+                        <outlet property="wheatherLocationLabel" destination="Iew-75-7fB" id="3bf-7t-9av"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
