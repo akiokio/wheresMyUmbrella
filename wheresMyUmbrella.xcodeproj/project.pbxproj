@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		557867191AB727C200EA55CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557867181AB727C200EA55CC /* AppDelegate.swift */; };
-		5578671B1AB727C200EA55CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578671A1AB727C200EA55CC /* ViewController.swift */; };
+		5578671B1AB727C200EA55CC /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578671A1AB727C200EA55CC /* DashboardViewController.swift */; };
 		5578671E1AB727C200EA55CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5578671C1AB727C200EA55CC /* Main.storyboard */; };
-		557867201AB727C200EA55CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5578671F1AB727C200EA55CC /* Images.xcassets */; };
 		557867231AB727C200EA55CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 557867211AB727C200EA55CC /* LaunchScreen.xib */; };
 		5578672F1AB727C200EA55CC /* wheresMyUmbrellaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578672E1AB727C200EA55CC /* wheresMyUmbrellaTests.swift */; };
+		5578673B1AB743F800EA55CC /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5578673A1AB743F800EA55CC /* assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +29,13 @@
 		557867131AB727C200EA55CC /* wheresMyUmbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wheresMyUmbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		557867171AB727C200EA55CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		557867181AB727C200EA55CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5578671A1AB727C200EA55CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5578671A1AB727C200EA55CC /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		5578671D1AB727C200EA55CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5578671F1AB727C200EA55CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		557867221AB727C200EA55CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		557867281AB727C200EA55CC /* wheresMyUmbrellaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wheresMyUmbrellaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5578672D1AB727C200EA55CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5578672E1AB727C200EA55CC /* wheresMyUmbrellaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wheresMyUmbrellaTests.swift; sourceTree = "<group>"; };
+		5578673A1AB743F800EA55CC /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,11 +78,11 @@
 			isa = PBXGroup;
 			children = (
 				557867181AB727C200EA55CC /* AppDelegate.swift */,
-				5578671A1AB727C200EA55CC /* ViewController.swift */,
+				5578671A1AB727C200EA55CC /* DashboardViewController.swift */,
 				5578671C1AB727C200EA55CC /* Main.storyboard */,
-				5578671F1AB727C200EA55CC /* Images.xcassets */,
 				557867211AB727C200EA55CC /* LaunchScreen.xib */,
 				557867161AB727C200EA55CC /* Supporting Files */,
+				5578673A1AB743F800EA55CC /* assets.xcassets */,
 			);
 			path = wheresMyUmbrella;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			files = (
 				5578671E1AB727C200EA55CC /* Main.storyboard in Resources */,
 				557867231AB727C200EA55CC /* LaunchScreen.xib in Resources */,
-				557867201AB727C200EA55CC /* Images.xcassets in Resources */,
+				5578673B1AB743F800EA55CC /* assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5578671B1AB727C200EA55CC /* ViewController.swift in Sources */,
+				5578671B1AB727C200EA55CC /* DashboardViewController.swift in Sources */,
 				557867191AB727C200EA55CC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
