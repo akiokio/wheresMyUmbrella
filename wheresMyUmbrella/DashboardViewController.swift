@@ -50,93 +50,134 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         
-        WeatherData.getWeatherDataForLocation("\(currentLocation.coordinate.latitude)",
-            longitude: "\(currentLocation.coordinate.longitude)", completionBlock: {(forecast) in
-            
-            var currentForecast = forecast["currently"] as NSDictionary
-            var todayPrecip : Double = currentForecast["precipProbability"] as Double * 100
-            var recomendation : String = "Not sure yet :/"
-            
-            if(todayPrecip <= 25){
-                recomendation = "The chances are low, don't take the umbrella and enjoy the day"
-            } else if (todayPrecip > 25 && todayPrecip <= 50){
-                recomendation = "You can risk not take you umbrella, chances are lower than 50%"
-            } else if (todayPrecip > 50 && todayPrecip <= 75){
-                recomendation = "Wow take a loot at the skies, maybe it's gonna rain"
-            } else if (todayPrecip > 75 && todayPrecip <= 100){
-                recomendation = "Yes you should get your umbrella and good luck :)"
-            }
-            
-            let iconName = currentForecast["icon"] as String
-            let nextWeekForecast = forecast["daily"] as NSDictionary
-            let nextWeekForecastData = nextWeekForecast["data"] as NSArray
-            var nextWeekArray : [NSDictionary] = []
-            
-            // Need to start at 1 because the first occurence in the data array is today
-            for index in 1...5{
-                var dayForecast : NSDictionary = nextWeekForecastData[index] as NSDictionary
-                let date = NSDate(timeIntervalSince1970: dayForecast["time"] as Double)
-                
-                let dayDict = [  "date": self.dateStringFromUnixTime(dayForecast["time"] as Int),
-                            "precipPercent": String(format: "%.0f%%", (dayForecast["precipProbability"] as Double * 100)),
-                                     "icon": dayForecast["icon"] as String]
-                nextWeekArray.append(dayDict)
-                
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                self.guessLabel.text = recomendation
-                self.todayPrecipChangeLabel.text = NSString(format: "%.0f%%", todayPrecip)
-                self.todayBigIcoImageView.image = self.wheatherIcoFromString(iconName)
-                
-                self.dayPlusOneLabel.text = nextWeekArray[0]["date"] as? String
-                self.dayPlusOnePrecipChanceLabel.text = nextWeekArray[0]["precipPercent"] as? String
-                self.dayPlusTwoLabel.text = nextWeekArray[1]["date"] as? String
-                self.dayPlusTwoPrecipChanceLabel.text = nextWeekArray[1]["precipPercent"] as? String
-                self.dayPlusThreeLabel.text = nextWeekArray[2]["date"] as? String
-                self.dayPlusThreePrecipChanceLabel.text = nextWeekArray[2]["precipPercent"] as? String
-                self.dayPlusFourLabel.text = nextWeekArray[3]["date"] as? String
-                self.dayPlusFourPrecipChanceLabel.text = nextWeekArray[3]["precipPercent"] as? String
-                self.dayPlusFiveLabel.text = nextWeekArray[4]["date"] as? String
-                self.dayPlusFivePrecipChanceLabel.text = nextWeekArray[4]["precipPercent"] as? String
-                
-                self.dayPlusOneIcon.image = self.wheatherIcoFromString(nextWeekArray[0]["icon"] as String)
-                self.dayPlusTwoIcon.image = self.wheatherIcoFromString(nextWeekArray[1]["icon"] as String)
-                self.dayPlusThreeIcon.image = self.wheatherIcoFromString(nextWeekArray[2]["icon"] as String)
-                self.dayPlusFourIcon.image = self.wheatherIcoFromString(nextWeekArray[3]["icon"] as String)
-                self.dayPlusFiveIcon.image = self.wheatherIcoFromString(nextWeekArray[4]["icon"] as String)
-            })
-        })
+        checkForPrivacyAuthorization(locationManager)
         
+        getWeatherData(self.currentLocation.coordinate)
+    }
+    
+    func getWeatherData(coordinates: CLLocationCoordinate2D){
+        WeatherData.getWeatherDataForLocation("\(coordinates.latitude)",
+            longitude: "\(coordinates.longitude)", completionBlock: {(forecast) in
+                
+                var currentForecast = forecast["currently"] as NSDictionary
+                var todayPrecip : Double = currentForecast["precipProbability"] as Double * 100
+                var recomendation : String = "Not sure yet :/"
+                
+                if(todayPrecip <= 25){
+                    recomendation = "The chances are low, don't take the umbrella and enjoy the day"
+                } else if (todayPrecip > 25 && todayPrecip <= 50){
+                    recomendation = "You can risk not take you umbrella, chances are lower than 50%"
+                } else if (todayPrecip > 50 && todayPrecip <= 75){
+                    recomendation = "Wow take a loot at the skies, maybe it's gonna rain"
+                } else if (todayPrecip > 75 && todayPrecip <= 100){
+                    recomendation = "Yes you should get your umbrella and good luck :)"
+                }
+                
+                let iconName = currentForecast["icon"] as String
+                let nextWeekForecast = forecast["daily"] as NSDictionary
+                let nextWeekForecastData = nextWeekForecast["data"] as NSArray
+                var nextWeekArray : [NSDictionary] = []
+                
+                // Need to start at 1 because the first occurence in the data array is today
+                for index in 1...5{
+                    var dayForecast : NSDictionary = nextWeekForecastData[index] as NSDictionary
+                    let date = NSDate(timeIntervalSince1970: dayForecast["time"] as Double)
+                    
+                    let dayDict = [  "date": self.dateStringFromUnixTime(dayForecast["time"] as Int),
+                        "precipPercent": String(format: "%.0f%%", (dayForecast["precipProbability"] as Double * 100)),
+                        "icon": dayForecast["icon"] as String]
+                    nextWeekArray.append(dayDict)
+                    
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.guessLabel.text = recomendation
+                    self.todayPrecipChangeLabel.text = NSString(format: "%.0f%%", todayPrecip)
+                    self.todayBigIcoImageView.image = self.wheatherIcoFromString(iconName)
+                    
+                    self.dayPlusOneLabel.text = nextWeekArray[0]["date"] as? String
+                    self.dayPlusOnePrecipChanceLabel.text = nextWeekArray[0]["precipPercent"] as? String
+                    self.dayPlusTwoLabel.text = nextWeekArray[1]["date"] as? String
+                    self.dayPlusTwoPrecipChanceLabel.text = nextWeekArray[1]["precipPercent"] as? String
+                    self.dayPlusThreeLabel.text = nextWeekArray[2]["date"] as? String
+                    self.dayPlusThreePrecipChanceLabel.text = nextWeekArray[2]["precipPercent"] as? String
+                    self.dayPlusFourLabel.text = nextWeekArray[3]["date"] as? String
+                    self.dayPlusFourPrecipChanceLabel.text = nextWeekArray[3]["precipPercent"] as? String
+                    self.dayPlusFiveLabel.text = nextWeekArray[4]["date"] as? String
+                    self.dayPlusFivePrecipChanceLabel.text = nextWeekArray[4]["precipPercent"] as? String
+                    
+                    self.dayPlusOneIcon.image = self.wheatherIcoFromString(nextWeekArray[0]["icon"] as String)
+                    self.dayPlusTwoIcon.image = self.wheatherIcoFromString(nextWeekArray[1]["icon"] as String)
+                    self.dayPlusThreeIcon.image = self.wheatherIcoFromString(nextWeekArray[2]["icon"] as String)
+                    self.dayPlusFourIcon.image = self.wheatherIcoFromString(nextWeekArray[3]["icon"] as String)
+                    self.dayPlusFiveIcon.image = self.wheatherIcoFromString(nextWeekArray[4]["icon"] as String)
+                })
+        })
     }
     
     func setCityName(location: CLLocation) {
-        var geoCoder = CLGeocoder()
-        var location = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        var cityGeocoded : String = "Not found"
-        
-        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
-            let placeArray = placemarks as [CLPlacemark]
-            
-            // Place details
-            var placeMark: CLPlacemark!
-            placeMark = placeArray[0]
-            
-            // Address dictionary
-//            println(placeMark.addressDictionary)
-            
-            if let city = placeMark.addressDictionary["City"] as? NSString {
-                cityGeocoded = city
+        let geocoder = GMSGeocoder()
+        geocoder.reverseGeocodeCoordinate(currentLocation.coordinate, completionHandler: { (response, error) -> Void in
+            if let address = response?.firstResult(){
+                let lines = address.lines as [String]
+                self.wheatherLocationLabel.text = join("\n", lines)
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
             }
-            dispatch_async(dispatch_get_main_queue(), {() -> Void in
-                self.wheatherLocationLabel.text = cityGeocoded
-            })
         })
     }
     
+    func checkForPrivacyAuthorization(manager: CLLocationManager!){
+        //Now in iOS8 sometimes the location is disabled in privacy settings so whe use this snippet to warn the user
+        switch CLLocationManager.authorizationStatus() {
+            case .AuthorizedAlways:
+                println("Already authorized")
+            case .NotDetermined:
+                manager.requestAlwaysAuthorization()
+            case .AuthorizedWhenInUse, .Restricted, .Denied:
+                let alertController = UIAlertController(
+                    title: "Background Location Access Disabled",
+                    message: "In order to be notified about adorable kittens near you, please open this app's settings and set location access to 'Always'.",
+                    preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+                alertController.addAction(cancelAction)
+                
+                let openAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
+                    if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+                        UIApplication.sharedApplication().openURL(url)
+                    }
+                }
+                alertController.addAction(openAction)
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+    }
+    
+    // MARK: - Navigation Methods
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier ==  "showSettings" {
+            let destinationViewController = segue.destinationViewController as SettingsViewController
+            destinationViewController.currentLocation = self.currentLocation
+            
+            destinationViewController.returnLocationToParent = {[weak self] (location) in
+                if let weekSelf = self {
+                    weekSelf.returnLocationToParent(location)
+                }
+            }
+        }
+    }
+    
+    func returnLocationToParent(location: CLLocation) {
+        self.currentLocation = location
+        getWeatherData(self.currentLocation.coordinate)
+        setCityName(self.currentLocation)
+    }
+    
     // Not used for now
+    // MARK: - Delegate Methods
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        println("locations \(locations)")
         self.currentLocation = locationManager.location
         setCityName(locations.last as CLLocation)
     }
@@ -146,7 +187,15 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
 
     }
     
-    //TODO, Refactor this
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+            manager.startUpdatingLocation()
+        }
+    }
+
+    // END LOCATION DELEGATE
+    
+    //MARK: - Refactor this
     func wheatherIcoFromString(stringIcon : String) -> UIImage {
         var imageName : String
         switch stringIcon {

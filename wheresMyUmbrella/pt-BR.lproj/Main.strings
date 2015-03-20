@@ -1,0 +1,54 @@
+
+/* Class = "UIButton"; normalTitle = "Settings"; ObjectID = "0kG-k5-mbK"; */
+"0kG-k5-mbK.normalTitle" = "Preferencias";
+
+/* Class = "UILabel"; text = "Próximo dia"; ObjectID = "4bU-K9-BYb"; */
+"4bU-K9-BYb.text" = "Próximo dia";
+
+/* Class = "UILabel"; text = "100%"; ObjectID = "85u-4f-9Uu"; */
+"85u-4f-9Uu.text" = "100%";
+
+/* Class = "UILabel"; text = "Not Set"; ObjectID = "Iew-75-7fB"; */
+"Iew-75-7fB.text" = "Não localizado";
+
+/* Class = "UILabel"; text = "Location:"; ObjectID = "JUE-ZB-fuU"; */
+"JUE-ZB-fuU.text" = "Localização:";
+
+/* Class = "UILabel"; text = "80%"; ObjectID = "LOJ-hD-X69"; */
+"LOJ-hD-X69.text" = "80%";
+
+/* Class = "UILabel"; text = "Próximo dia"; ObjectID = "PGg-Hy-hUS"; */
+"PGg-Hy-hUS.text" = "Próximo dia";
+
+/* Class = "UILabel"; text = "My guess is: I'm still looking at the skies, one moment"; ObjectID = "ReQ-Id-jry"; */
+"ReQ-Id-jry.text" = "My guess is: I'm still looking at the skies, one moment";
+
+/* Class = "UILabel"; text = "Próximo dia"; ObjectID = "SUC-yA-VRs"; */
+"SUC-yA-VRs.text" = "Próximo dia";
+
+/* Class = "UILabel"; text = "80%"; ObjectID = "Tfg-n8-s4Y"; */
+"Tfg-n8-s4Y.text" = "80%";
+
+/* Class = "UILabel"; text = "Próximo dia"; ObjectID = "Tgg-Zu-UHz"; */
+"Tgg-Zu-UHz.text" = "Próximo dia";
+
+/* Class = "UILabel"; text = "8:00 am"; ObjectID = "dQc-kT-szX"; */
+"dQc-kT-szX.text" = "8:00 am";
+
+/* Class = "UILabel"; text = "80%"; ObjectID = "kai-Sl-YtO"; */
+"kai-Sl-YtO.text" = "80%";
+
+/* Class = "UILabel"; text = "Próximo dia"; ObjectID = "qWj-SI-WMj"; */
+"qWj-SI-WMj.text" = "Próximo dia";
+
+/* Class = "UILabel"; text = "00%"; ObjectID = "ro8-tS-U5C"; */
+"ro8-tS-U5C.text" = "00%";
+
+/* Class = "UILabel"; text = "Remind me at:"; ObjectID = "uHF-PI-j33"; */
+"uHF-PI-j33.text" = "Lembre-me as:";
+
+/* Class = "UILabel"; text = "Will it Rain Today?"; ObjectID = "yaz-No-Q3f"; */
+"yaz-No-Q3f.text" = "Vai chover hoje?";
+
+/* Class = "UILabel"; text = "80%"; ObjectID = "zg8-eI-VH3"; */
+"zg8-eI-VH3.text" = "80%";
