@@ -42,7 +42,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
@@ -192,10 +192,26 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
             manager.startUpdatingLocation()
         }
     }
-
-    // END LOCATION DELEGATE
     
-    //MARK: - Refactor this
+    
+    // MARK: - Shake gestures
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+        if event.subtype == .MotionShake {
+            getWeatherData(self.currentLocation.coordinate)
+            setCityName(self.currentLocation)
+        }
+    }
+
+    // MARK: - Navigation Style
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    // MARK: - Refactor this
     func wheatherIcoFromString(stringIcon : String) -> UIImage {
         var imageName : String
         switch stringIcon {

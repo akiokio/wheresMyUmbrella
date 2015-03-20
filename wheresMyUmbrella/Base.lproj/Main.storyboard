@@ -343,7 +343,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Some City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Bv5-mi-l4B">
-                                <rect key="frame" x="100" y="87" width="204" height="21"/>
+                                <rect key="frame" x="99" y="87" width="205" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -368,6 +368,12 @@
                                     <action selector="dissmissMe:" destination="LEF-tt-jxJ" eventType="touchUpInside" id="gZO-wj-RiS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake the phone to update the wheather data" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVK-oV-Nw2">
+                                <rect key="frame" x="100" y="527" width="204" height="33"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -380,11 +386,14 @@
                             <constraint firstItem="N4H-gm-n7f" firstAttribute="top" secondItem="Bv5-mi-l4B" secondAttribute="bottom" constant="27" id="O8F-80-jt9"/>
                             <constraint firstItem="xGu-8g-RPb" firstAttribute="top" secondItem="rzf-VI-kOp" secondAttribute="bottom" constant="8" id="RaY-Wc-T39"/>
                             <constraint firstItem="rzf-VI-kOp" firstAttribute="leading" secondItem="Sxa-Wc-ed1" secondAttribute="leadingMargin" id="WO6-Yk-HGr"/>
+                            <constraint firstAttribute="trailing" secondItem="IVK-oV-Nw2" secondAttribute="trailing" constant="16" id="Wxl-RB-dcy"/>
                             <constraint firstItem="xGu-8g-RPb" firstAttribute="top" secondItem="N4H-gm-n7f" secondAttribute="bottom" constant="136" id="XhO-N6-NKz"/>
                             <constraint firstItem="Bv5-mi-l4B" firstAttribute="leading" secondItem="qKN-Qh-zYY" secondAttribute="trailing" constant="8" id="YDT-eu-euV"/>
                             <constraint firstItem="N4H-gm-n7f" firstAttribute="leading" secondItem="Sxa-Wc-ed1" secondAttribute="leading" id="Zb3-Dx-Hb8"/>
                             <constraint firstItem="0R5-ED-713" firstAttribute="top" secondItem="Ivm-Td-5Eo" secondAttribute="bottom" constant="8" id="bHR-2a-m1Z"/>
                             <constraint firstItem="Bv5-mi-l4B" firstAttribute="top" secondItem="0R5-ED-713" secondAttribute="bottom" constant="20" id="bJp-k9-DRE"/>
+                            <constraint firstItem="xGu-8g-RPb" firstAttribute="top" secondItem="IVK-oV-Nw2" secondAttribute="bottom" constant="8" id="kan-Jr-V9o"/>
+                            <constraint firstItem="IVK-oV-Nw2" firstAttribute="leading" secondItem="rzf-VI-kOp" secondAttribute="trailing" constant="13" id="lV1-Dp-pA6"/>
                             <constraint firstItem="N4H-gm-n7f" firstAttribute="top" secondItem="Sxa-Wc-ed1" secondAttribute="top" constant="135" id="qL1-QD-crd"/>
                             <constraint firstAttribute="trailing" secondItem="N4H-gm-n7f" secondAttribute="trailing" id="si0-SM-4u6"/>
                             <constraint firstItem="0R5-ED-713" firstAttribute="trailing" secondItem="Sxa-Wc-ed1" secondAttribute="trailingMargin" id="yDe-zR-xkg"/>
