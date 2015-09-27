@@ -59,8 +59,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
         WeatherData.getWeatherDataForLocation("\(coordinates.latitude)",
             longitude: "\(coordinates.longitude)", completionBlock: {(forecast) in
                 
-                var currentForecast = forecast["currently"] as NSDictionary
-                var todayPrecip : Double = currentForecast["precipProbability"] as Double * 100
+                let currentForecast = forecast["currently"] as! NSDictionary
+                let todayPrecip : Double = currentForecast["precipProbability"] as! Double * 100
                 var recomendation : String = "Not sure yet :/"
                 
                 if(todayPrecip <= 25){
@@ -73,26 +73,26 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
                     recomendation = "Yes you should get your umbrella and good luck :)"
                 }
                 
-                let iconName = currentForecast["icon"] as String
-                let nextWeekForecast = forecast["daily"] as NSDictionary
-                let nextWeekForecastData = nextWeekForecast["data"] as NSArray
+                let iconName = currentForecast["icon"] as! String
+                let nextWeekForecast = forecast["daily"] as! NSDictionary
+                let nextWeekForecastData = nextWeekForecast["data"] as! NSArray
                 var nextWeekArray : [NSDictionary] = []
                 
                 // Need to start at 1 because the first occurence in the data array is today
                 for index in 1...5{
-                    var dayForecast : NSDictionary = nextWeekForecastData[index] as NSDictionary
-                    let date = NSDate(timeIntervalSince1970: dayForecast["time"] as Double)
+                    let dayForecast : NSDictionary = nextWeekForecastData[index] as! NSDictionary
+                    _ = NSDate(timeIntervalSince1970: dayForecast["time"] as! Double)
                     
-                    let dayDict = [  "date": self.dateStringFromUnixTime(dayForecast["time"] as Int),
-                        "precipPercent": String(format: "%.0f%%", (dayForecast["precipProbability"] as Double * 100)),
-                        "icon": dayForecast["icon"] as String]
+                    let dayDict = [  "date": self.dateStringFromUnixTime(dayForecast["time"] as! Int),
+                        "precipPercent": String(format: "%.0f%%", (dayForecast["precipProbability"] as! Double * 100)),
+                        "icon": dayForecast["icon"] as! String]
                     nextWeekArray.append(dayDict)
                     
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.guessLabel.text = recomendation
-                    self.todayPrecipChangeLabel.text = NSString(format: "%.0f%%", todayPrecip)
+                    self.todayPrecipChangeLabel.text = NSString(format: "%.0f%%", todayPrecip) as String
                     self.todayBigIcoImageView.image = self.wheatherIcoFromString(iconName)
                     
                     self.dayPlusOneLabel.text = nextWeekArray[0]["date"] as? String
@@ -106,11 +106,11 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
                     self.dayPlusFiveLabel.text = nextWeekArray[4]["date"] as? String
                     self.dayPlusFivePrecipChanceLabel.text = nextWeekArray[4]["precipPercent"] as? String
                     
-                    self.dayPlusOneIcon.image = self.wheatherIcoFromString(nextWeekArray[0]["icon"] as String)
-                    self.dayPlusTwoIcon.image = self.wheatherIcoFromString(nextWeekArray[1]["icon"] as String)
-                    self.dayPlusThreeIcon.image = self.wheatherIcoFromString(nextWeekArray[2]["icon"] as String)
-                    self.dayPlusFourIcon.image = self.wheatherIcoFromString(nextWeekArray[3]["icon"] as String)
-                    self.dayPlusFiveIcon.image = self.wheatherIcoFromString(nextWeekArray[4]["icon"] as String)
+                    self.dayPlusOneIcon.image = self.wheatherIcoFromString(nextWeekArray[0]["icon"] as! String)
+                    self.dayPlusTwoIcon.image = self.wheatherIcoFromString(nextWeekArray[1]["icon"] as! String)
+                    self.dayPlusThreeIcon.image = self.wheatherIcoFromString(nextWeekArray[2]["icon"] as! String)
+                    self.dayPlusFourIcon.image = self.wheatherIcoFromString(nextWeekArray[3]["icon"] as! String)
+                    self.dayPlusFiveIcon.image = self.wheatherIcoFromString(nextWeekArray[4]["icon"] as! String)
                 })
         })
     }
@@ -119,8 +119,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
         let geocoder = GMSGeocoder()
         geocoder.reverseGeocodeCoordinate(currentLocation.coordinate, completionHandler: { (response, error) -> Void in
             if let address = response?.firstResult(){
-                let lines = address.lines as [String]
-                self.wheatherLocationLabel.text = join("\n", lines)
+                let lines = address.lines as! [String]
+                self.wheatherLocationLabel.text = lines.joinWithSeparator("\n")
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
                 })
@@ -132,7 +132,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
         //Now in iOS8 sometimes the location is disabled in privacy settings so whe use this snippet to warn the user
         switch CLLocationManager.authorizationStatus() {
             case .AuthorizedAlways:
-                println("Already authorized")
+                print("Already authorized")
             case .NotDetermined:
                 manager.requestAlwaysAuthorization()
             case .AuthorizedWhenInUse, .Restricted, .Denied:
@@ -158,7 +158,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
     // MARK: - Navigation Methods
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier ==  "showSettings" {
-            let destinationViewController = segue.destinationViewController as SettingsViewController
+            let destinationViewController = segue.destinationViewController as! SettingsViewController
             destinationViewController.currentLocation = self.currentLocation
             
             destinationViewController.returnLocationToParent = {[weak self] (location) in
@@ -177,17 +177,17 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
     
     // Not used for now
     // MARK: - Delegate Methods
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        self.currentLocation = locationManager.location
-        setCityName(locations.last as CLLocation)
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.currentLocation = locationManager.location!
+        setCityName(locations.last!)
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Error while updating location " + error.localizedDescription)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error while updating location " + error.localizedDescription)
 
     }
     
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             manager.startUpdatingLocation()
         }
@@ -198,8 +198,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
-        if event.subtype == .MotionShake {
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if event!.subtype == .MotionShake {
             getWeatherData(self.currentLocation.coordinate)
             setCityName(self.currentLocation)
         }

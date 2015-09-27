@@ -18,16 +18,21 @@ struct WeatherData {
         
         let sharedSession = NSURLSession.sharedSession()
         
-        let downloadTask : NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(forecastURL!, completionHandler: { (location: NSURL!, response: NSURLResponse!, error: NSError!) -> Void in
+        let downloadTask : NSURLSessionDownloadTask = sharedSession.downloadTaskWithURL(forecastURL!, completionHandler: { (location: NSURL?, response: NSURLResponse?, error: NSError?) -> Void in
             if error == nil {
-                let dataObject  = NSData(contentsOfURL: location)
-                let weatherData: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataObject!, options: nil, error: nil) as NSDictionary
-//                println(weatherData)
-                
-//                var currentWheather = Current(weatherDictionary: weatherData)
-                completionBlock(forecastData: weatherData)
+                let dataObject  = NSData(contentsOfURL: location!)
+                do {
+                    let weatherData = try NSJSONSerialization.JSONObjectWithData(dataObject!, options: NSJSONReadingOptions.AllowFragments)
+                    
+                    //                println(weatherData)
+                    
+                    //                var currentWheather = Current(weatherDictionary: weatherData)
+                    completionBlock(forecastData: weatherData as! NSDictionary)
+                } catch let error as NSError {
+                    print("A JSON parsing error occurred, here are the details:\n \(error)")
+                }
             } else {
-                println(error)
+                print(error)
             }
         })
         

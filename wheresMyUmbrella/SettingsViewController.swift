@@ -36,7 +36,7 @@ class SettingsViewController: UIViewController, GMSMapViewDelegate {
                 var marker = GMSMarker(position: location)
                 marker.map = self.mapView!
                 
-                self.wheatherLocationLabel.text = address.lines[0] as NSString
+                self.wheatherLocationLabel.text = address.lines[0] as! NSString as String
                 
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.view.layoutIfNeeded()
