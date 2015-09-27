@@ -39,4 +39,17 @@ struct WeatherData {
         downloadTask.resume()
         
     }
+    
+    static func getCityNameFromLocation(location: CLLocation, completionBlock: (cityName: NSString) -> ()) {
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(location, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            if let address = placemarks?[0] {
+                let addressDict = NSDictionary(dictionary: address.addressDictionary!)
+                if let cityName = addressDict["City"] as? NSString {
+                    completionBlock(cityName: cityName)
+                }
+                
+            }
+        })
+    }
 }

@@ -12,7 +12,6 @@ class SettingsViewController: UIViewController {
     var returnLocationToParent: ((location: CLLocation) -> ())?
     
     @IBOutlet weak var wheatherLocationLabel: UILabel!
-    @IBOutlet weak var mapView: UIView!
     
     var currentLocation = CLLocation()
     
@@ -25,6 +24,10 @@ class SettingsViewController: UIViewController {
     func setCityNameAndMarker(location: CLLocationCoordinate2D) {
         self.currentLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         self.returnLocationToParent?(location: self.currentLocation)
+        
+        WeatherData.getCityNameFromLocation(self.currentLocation, completionBlock: {(cityName: NSString) -> Void in
+            self.wheatherLocationLabel.text = cityName as String
+        })
     }
     
 

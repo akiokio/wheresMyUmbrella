@@ -116,7 +116,9 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func setCityName(location: CLLocation) {
-        
+        WeatherData.getCityNameFromLocation(self.currentLocation, completionBlock: {(cityName: NSString) -> Void in
+            self.wheatherLocationLabel.text = cityName as String
+        })
     }
     
     func checkForPrivacyAuthorization(manager: CLLocationManager!){
@@ -159,6 +161,8 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    
+    // MARK - Settings Delegate
     
     func returnLocationToParent(location: CLLocation) {
         self.currentLocation = location

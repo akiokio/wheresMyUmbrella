@@ -29,6 +29,7 @@
 		5578672F1AB727C200EA55CC /* wheresMyUmbrellaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578672E1AB727C200EA55CC /* wheresMyUmbrellaTests.swift */; };
 		5578673B1AB743F800EA55CC /* assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5578673A1AB743F800EA55CC /* assets.xcassets */; };
 		5578673D1AB74EB700EA55CC /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5578673C1AB74EB700EA55CC /* WeatherData.swift */; };
+		55B8533B1BB853980092C29F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B8533A1BB853980092C29F /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		5578672E1AB727C200EA55CC /* wheresMyUmbrellaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wheresMyUmbrellaTests.swift; sourceTree = "<group>"; };
 		5578673A1AB743F800EA55CC /* assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = assets.xcassets; sourceTree = "<group>"; };
 		5578673C1AB74EB700EA55CC /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		55B8533A1BB853980092C29F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B8533B1BB853980092C29F /* MapKit.framework in Frameworks */,
 				5576394C1ABC6C6B00DD0EAB /* SystemConfiguration.framework in Frameworks */,
 				5576394A1ABC6C6500DD0EAB /* QuartzCore.framework in Frameworks */,
 				557639481ABC6C5B00DD0EAB /* OpenGLES.framework in Frameworks */,
@@ -151,6 +154,7 @@
 		5578670A1AB727C200EA55CC = {
 			isa = PBXGroup;
 			children = (
+				55B8533A1BB853980092C29F /* MapKit.framework */,
 				557867151AB727C200EA55CC /* wheresMyUmbrella */,
 				5578672B1AB727C200EA55CC /* wheresMyUmbrellaTests */,
 				557867141AB727C200EA55CC /* Products */,
