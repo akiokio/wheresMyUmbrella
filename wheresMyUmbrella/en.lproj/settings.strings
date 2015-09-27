@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "0R5-ED-713"; */
+"0R5-ED-713.text" = "Settings";
+
+/* Class = "UILabel"; text = "Some City"; ObjectID = "Bv5-mi-l4B"; */
+"Bv5-mi-l4B.text" = "Some City";
+
+/* Class = "UILabel"; text = "Shake the phone to update the wheather data"; ObjectID = "IVK-oV-Nw2"; */
+"IVK-oV-Nw2.text" = "Shake the phone to update the wheather data";
+
+/* Class = "UILabel"; text = "Location: "; ObjectID = "qKN-Qh-zYY"; */
+"qKN-Qh-zYY.text" = "Location: ";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "rzf-VI-kOp"; */
+"rzf-VI-kOp.normalTitle" = "Back";

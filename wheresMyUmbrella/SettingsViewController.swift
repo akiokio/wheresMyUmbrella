@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController, GMSMapViewDelegate {
         let geocoder = GMSGeocoder()
         geocoder.reverseGeocodeCoordinate(location, completionHandler: { (response, error) -> Void in
             if let address = response?.firstResult() {
-                var marker = GMSMarker(position: location)
+                let marker = GMSMarker(position: location)
                 marker.map = self.mapView!
                 
                 self.wheatherLocationLabel.text = address.lines[0] as! NSString as String
