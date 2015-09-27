@@ -116,16 +116,7 @@ class DashboardViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     func setCityName(location: CLLocation) {
-        let geocoder = GMSGeocoder()
-        geocoder.reverseGeocodeCoordinate(currentLocation.coordinate, completionHandler: { (response, error) -> Void in
-            if let address = response?.firstResult(){
-                let lines = address.lines as! [String]
-                self.wheatherLocationLabel.text = lines.joinWithSeparator("\n")
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
-                    self.view.layoutIfNeeded()
-                })
-            }
-        })
+        
     }
     
     func checkForPrivacyAuthorization(manager: CLLocationManager!){

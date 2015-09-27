@@ -8,41 +8,23 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, GMSMapViewDelegate {
+class SettingsViewController: UIViewController {
     var returnLocationToParent: ((location: CLLocation) -> ())?
     
     @IBOutlet weak var wheatherLocationLabel: UILabel!
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var mapView: UIView!
     
     var currentLocation = CLLocation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.delegate = self
-        mapView.myLocationEnabled = true
-        mapView.settings.myLocationButton = true
-        mapView.camera = GMSCameraPosition(target: currentLocation.coordinate, zoom: 14, bearing: 0, viewingAngle: 0)
         setCityNameAndMarker(currentLocation.coordinate)
     }
     
     func setCityNameAndMarker(location: CLLocationCoordinate2D) {
         self.currentLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
         self.returnLocationToParent?(location: self.currentLocation)
-        
-        let geocoder = GMSGeocoder()
-        geocoder.reverseGeocodeCoordinate(location, completionHandler: { (response, error) -> Void in
-            if let address = response?.firstResult() {
-                let marker = GMSMarker(position: location)
-                marker.map = self.mapView!
-                
-                self.wheatherLocationLabel.text = address.lines[0] as! NSString as String
-                
-                UIView.animateWithDuration(0.25, animations: { () -> Void in
-                    self.view.layoutIfNeeded()
-                })
-            }
-        })
     }
     
 
@@ -59,17 +41,4 @@ class SettingsViewController: UIViewController, GMSMapViewDelegate {
     
     // MARK: - Delegates
     
-    //Maps delegate
-    func mapView(mapView: GMSMapView!, idleAtCameraPosition position: GMSCameraPosition!) {
-        
-    }
-    
-    func mapView(mapView: GMSMapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
-        mapView.clear()
-        setCityNameAndMarker(coordinate)
-    }
-    
-    func mapView(mapView: GMSMapView!, willMove gesture: Bool) {
-        mapView.clear()
-    }
 }

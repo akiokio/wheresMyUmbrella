@@ -10,10 +10,8 @@
 		5570CDD91BB84E8000658C0E /* settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5570CDD71BB84E8000658C0E /* settings.storyboard */; settings = {ASSET_TAGS = (); }; };
 		5576392D1AB75F3E00DD0EAB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5576392C1AB75F3E00DD0EAB /* CoreLocation.framework */; };
 		557639311ABC6B1900DD0EAB /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557639301ABC6B1900DD0EAB /* constants.swift */; };
-		557639341ABC6BEB00DD0EAB /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557639331ABC6BEB00DD0EAB /* GoogleMaps.framework */; };
 		557639361ABC6BFD00DD0EAB /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 557639351ABC6BFD00DD0EAB /* GoogleMaps.bundle */; };
 		557639381ABC6C1500DD0EAB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557639371ABC6C1500DD0EAB /* AVFoundation.framework */; };
-		5576393A1ABC6C1B00DD0EAB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 557639391ABC6C1B00DD0EAB /* CoreData.framework */; };
 		5576393C1ABC6C2800DD0EAB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5576393B1ABC6C2800DD0EAB /* CoreText.framework */; };
 		5576393E1ABC6C2F00DD0EAB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5576393D1ABC6C2F00DD0EAB /* GLKit.framework */; };
 		557639401ABC6C3500DD0EAB /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5576393F1ABC6C3500DD0EAB /* ImageIO.framework */; };
@@ -95,9 +93,7 @@
 				5576393E1ABC6C2F00DD0EAB /* GLKit.framework in Frameworks */,
 				5576393C1ABC6C2800DD0EAB /* CoreText.framework in Frameworks */,
 				5576392D1AB75F3E00DD0EAB /* CoreLocation.framework in Frameworks */,
-				5576393A1ABC6C1B00DD0EAB /* CoreData.framework in Frameworks */,
 				557639381ABC6C1500DD0EAB /* AVFoundation.framework in Frameworks */,
-				557639341ABC6BEB00DD0EAB /* GoogleMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +107,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5570CDE01BB8515000658C0E /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5578671C1AB727C200EA55CC /* Main.storyboard */,
+				5570CDD71BB84E8000658C0E /* settings.storyboard */,
+				557867211AB727C200EA55CC /* LaunchScreen.xib */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		5570CDE11BB8515E00658C0E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5578671A1AB727C200EA55CC /* DashboardViewController.swift */,
+				557639531ABC6F3300DD0EAB /* SettingsViewController.swift */,
+				5578673C1AB74EB700EA55CC /* WeatherData.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
 		557639321ABC6B6D00DD0EAB /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,14 +170,8 @@
 		557867151AB727C200EA55CC /* wheresMyUmbrella */ = {
 			isa = PBXGroup;
 			children = (
-				557867181AB727C200EA55CC /* AppDelegate.swift */,
-				557639301ABC6B1900DD0EAB /* constants.swift */,
-				5578671A1AB727C200EA55CC /* DashboardViewController.swift */,
-				557639531ABC6F3300DD0EAB /* SettingsViewController.swift */,
-				5578673C1AB74EB700EA55CC /* WeatherData.swift */,
-				5578671C1AB727C200EA55CC /* Main.storyboard */,
-				5570CDD71BB84E8000658C0E /* settings.storyboard */,
-				557867211AB727C200EA55CC /* LaunchScreen.xib */,
+				5570CDE11BB8515E00658C0E /* Classes */,
+				5570CDE01BB8515000658C0E /* Storyboards */,
 				557867161AB727C200EA55CC /* Supporting Files */,
 				5578673A1AB743F800EA55CC /* assets.xcassets */,
 				557639321ABC6B6D00DD0EAB /* frameworks */,
@@ -172,6 +182,8 @@
 		557867161AB727C200EA55CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				557639301ABC6B1900DD0EAB /* constants.swift */,
+				557867181AB727C200EA55CC /* AppDelegate.swift */,
 				557867171AB727C200EA55CC /* Info.plist */,
 			);
 			name = "Supporting Files";
